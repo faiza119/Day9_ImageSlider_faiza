@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Viewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="image-container">
+    <img id="displayed-image" src="image1.jpg" alt="Image">
+    <div id="indicators"></div>
+    <div class="buttons">
+      <button onclick="showPrevious()">Previous</button>
+      <button onclick="showNext()">Next</button>
+    </div>
+  </div>
+  <script>
+    const images = ["image1.jpg", "image2.jpg", "image3.jpg"]; 
+    let currentIndex = 0;
+
+    function showImage(index) {
+      const img = document.getElementById("displayed-image");
+      img.src = images[index];
+    }
+
+    function showPrevious() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showImage(currentIndex);
+      }
+    }
+
+    function showNext() {
+      if (currentIndex < images.length - 1) {
+        currentIndex++;
+        showImage(currentIndex);
+      }
+    }
+  </script>
+
+</body>
+<script src="script.js"></script>
+
+</html>
